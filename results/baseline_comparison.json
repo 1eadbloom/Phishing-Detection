@@ -1,0 +1,35 @@
+{
+  "TF-IDF + Naive Bayes": {
+    "precision": 0.8267,
+    "recall": 0.7869,
+    "f1": 0.8063,
+    "accuracy": 0.8782,
+    "auc_roc": 0.9436,
+    "inference_ms": 0.8
+  },
+  "TF-IDF + Logistic Regression": {
+    "precision": 0.8686,
+    "recall": 0.8403,
+    "f1": 0.8542,
+    "accuracy": 0.9076,
+    "auc_roc": 0.9688,
+    "inference_ms": 1.04
+  },
+  "XGBoost (URL features only)": null,
+  "RoBERTa-base (fine-tuned)": {
+    "precision": 0.9647,
+    "recall": 0.9457,
+    "f1": 0.9551,
+    "accuracy": 0.9714,
+    "auc_roc": 0.9948,
+    "inference_ms": 8.13
+  },
+  "Ensemble (RoBERTa + XGBoost)": {
+    "precision": 0.9649,
+    "recall": 0.9445,
+    "f1": 0.9546,
+    "accuracy": 0.9711,
+    "auc_roc": null,
+    "inference_ms": "\u2014"
+  }
+}

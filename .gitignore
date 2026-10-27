@@ -1,0 +1,120 @@
+# ============================================================
+# phishing_detection — .gitignore
+# Python ML project | Windows + Linux compatible
+# ============================================================
+
+# ─── Python ─────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.pyo
+*.pyd
+.Python
+build/
+dist/
+*.egg-info/
+*.egg
+pip-log.txt
+pip-delete-this-directory.txt
+
+# ─── Virtual Environment ────────────────────────────────────
+.venv/
+venv/
+env/
+ENV/
+.env/
+*.venv
+
+# ─── Environment Variables / Secrets ────────────────────────
+.env
+.env.local
+.env.*.local
+secrets.json
+api_keys.txt
+*.key
+
+# ─── Dataset Files (downloaded programmatically) ────────────
+# Raw downloads are large and auto-downloaded by 01_data_pipeline.py
+data/raw/
+data/processed/dataset_merged.csv
+data/processed/url_dataset.csv
+data/processed/train.csv
+data/processed/val.csv
+data/processed/test.csv
+# Keep the processed/ folder itself tracked (via .gitkeep)
+!data/raw/.gitkeep
+!data/processed/.gitkeep
+
+# ─── Model Weights (too large for GitHub, use releases/LFS) ─
+models/
+!models/.gitkeep
+# If using Git LFS for the XGBoost pkl (small ~1MB), comment out:
+# models/xgb_url_classifier.pkl
+
+# ─── Training Logs ──────────────────────────────────────────
+logs/
+runs/
+wandb/
+mlruns/
+*.log
+
+# ─── HuggingFace / Transformers Cache ───────────────────────
+.cache/
+~/.cache/huggingface/
+
+# ─── Results — Keep plots, exclude large CSVs ───────────────
+results/llm_explanations.csv
+results/roberta_probs.npy
+results/xgb_probs.npy
+# The following are tracked (needed for report / portfolio):
+# results/training_curves.png
+# results/confusion_matrix.png
+# results/roc_pr_curves.png
+# results/xgb_feature_importance.png
+# results/baseline_comparison.png
+# results/classification_report.txt
+# results/threshold_calibration.json
+
+# ─── Jupyter ────────────────────────────────────────────────
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+*/.ipynb_checkpoints
+
+# ─── OS / Editor ────────────────────────────────────────────
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.lnk
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# VS Code
+.vscode/
+!.vscode/extensions.json
+!.vscode/settings.json.example
+
+# PyCharm
+.idea/
+*.iml
+
+# ─── Package / Build ─────────────────────────────────────────
+*.whl
+*.tar.gz
+htmlcov/
+.coverage
+.coverage.*
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ─── Temporary / Scratch ─────────────────────────────────────
+*.tmp
+*.bak
+*.swp
+*~

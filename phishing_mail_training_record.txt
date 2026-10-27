@@ -1,0 +1,667 @@
+(.venv) PS C:\Users\user\Desktop\phishing_detection> pip install -r requirements.txt
+Requirement already satisfied: transformers==4.40.2 in .\.venv\Lib\site-packages (from -r requirements.txt (line 10)) (4.40.2)
+Requirement already satisfied: datasets==2.19.1 in .\.venv\Lib\site-packages (from -r requirements.txt (line 13)) (2.19.1)
+Requirement already satisfied: evaluate==0.4.2 in .\.venv\Lib\site-packages (from -r requirements.txt (line 16)) (0.4.2)
+Requirement already satisfied: peft==0.10.0 in .\.venv\Lib\site-packages (from -r requirements.txt (line 19)) (0.10.0)
+Requirement already satisfied: accelerate==0.29.3 in .\.venv\Lib\site-packages (from -r requirements.txt (line 22)) (0.29.3)
+Requirement already satisfied: scikit-learn==1.4.2 in .\.venv\Lib\site-packages (from -r requirements.txt (line 28)) (1.4.2)
+Requirement already satisfied: xgboost==2.0.3 in .\.venv\Lib\site-packages (from -r requirements.txt (line 31)) (2.0.3)
+Requirement already satisfied: tldextract==5.1.2 in .\.venv\Lib\site-packages (from -r requirements.txt (line 34)) (5.1.2)
+Requirement already satisfied: bitsandbytes==0.43.1 in .\.venv\Lib\site-packages (from -r requirements.txt (line 37)) (0.43.1)
+Requirement already satisfied: langchain==0.1.20 in .\.venv\Lib\site-packages (from -r requirements.txt (line 40)) (0.1.20)
+Requirement already satisfied: langchain-community==0.0.38 in .\.venv\Lib\site-packages (from -r requirements.txt (line 43)) (0.0.38)
+Requirement already satisfied: tqdm==4.66.4 in .\.venv\Lib\site-packages (from -r requirements.txt (line 46)) (4.66.4)
+Requirement already satisfied: seaborn==0.13.2 in .\.venv\Lib\site-packages (from -r requirements.txt (line 49)) (0.13.2)
+Requirement already satisfied: matplotlib==3.8.4 in .\.venv\Lib\site-packages (from -r requirements.txt (line 50)) (3.8.4)
+Requirement already satisfied: wandb==0.17.0 in .\.venv\Lib\site-packages (from -r requirements.txt (line 53)) (0.17.0)
+Requirement already satisfied: pandas==2.2.2 in .\.venv\Lib\site-packages (from -r requirements.txt (line 56)) (2.2.2)
+Requirement already satisfied: numpy==1.26.4 in .\.venv\Lib\site-packages (from -r requirements.txt (line 57)) (1.26.4)
+Requirement already satisfied: scipy==1.13.0 in .\.venv\Lib\site-packages (from -r requirements.txt (line 58)) (1.13.0)
+Requirement already satisfied: filelock in .\.venv\Lib\site-packages (from transformers==4.40.2->-r requirements.txt (line 10)) (3.29.0)
+Requirement already satisfied: huggingface-hub<1.0,>=0.19.3 in .\.venv\Lib\site-packages (from transformers==4.40.2->-r requirements.txt (line 10)) (0.36.2)
+Requirement already satisfied: packaging>=20.0 in .\.venv\Lib\site-packages (from transformers==4.40.2->-r requirements.txt (line 10)) (23.2)
+Requirement already satisfied: pyyaml>=5.1 in .\.venv\Lib\site-packages (from transformers==4.40.2->-r requirements.txt (line 10)) (6.0.3)
+Requirement already satisfied: regex!=2019.12.17 in .\.venv\Lib\site-packages (from transformers==4.40.2->-r requirements.txt (line 10)) (2026.5.9)
+Requirement already satisfied: requests in .\.venv\Lib\site-packages (from transformers==4.40.2->-r requirements.txt (line 10)) (2.34.2)
+Requirement already satisfied: tokenizers<0.20,>=0.19 in .\.venv\Lib\site-packages (from transformers==4.40.2->-r requirements.txt (line 10)) (0.19.1)
+Requirement already satisfied: safetensors>=0.4.1 in .\.venv\Lib\site-packages (from transformers==4.40.2->-r requirements.txt (line 10)) (0.7.0)
+Requirement already satisfied: pyarrow>=12.0.0 in .\.venv\Lib\site-packages (from datasets==2.19.1->-r requirements.txt (line 13)) (24.0.0)
+Requirement already satisfied: pyarrow-hotfix in .\.venv\Lib\site-packages (from datasets==2.19.1->-r requirements.txt (line 13)) (0.7)
+Requirement already satisfied: dill<0.3.9,>=0.3.0 in .\.venv\Lib\site-packages (from datasets==2.19.1->-r requirements.txt (line 13)) (0.3.8)
+Requirement already satisfied: xxhash in .\.venv\Lib\site-packages (from datasets==2.19.1->-r requirements.txt (line 13)) (3.7.0)
+Requirement already satisfied: multiprocess in .\.venv\Lib\site-packages (from datasets==2.19.1->-r requirements.txt (line 13)) (0.70.16)
+Requirement already satisfied: fsspec<=2024.3.1,>=2023.1.0 in .\.venv\Lib\site-packages (from fsspec[http]<=2024.3.1,>=2023.1.0->datasets==2.19.1->-r requirements.txt (line 13)) (2024.3.1)
+Requirement already satisfied: aiohttp in .\.venv\Lib\site-packages (from datasets==2.19.1->-r requirements.txt (line 13)) (3.14.0)
+Requirement already satisfied: psutil in .\.venv\Lib\site-packages (from peft==0.10.0->-r requirements.txt (line 19)) (7.2.2)
+Requirement already satisfied: torch>=1.13.0 in .\.venv\Lib\site-packages (from peft==0.10.0->-r requirements.txt (line 19)) (2.7.0+cu128)
+Requirement already satisfied: joblib>=1.2.0 in .\.venv\Lib\site-packages (from scikit-learn==1.4.2->-r requirements.txt (line 28)) (1.5.3)
+Requirement already satisfied: threadpoolctl>=2.0.0 in .\.venv\Lib\site-packages (from scikit-learn==1.4.2->-r requirements.txt (line 28)) (3.6.0)
+Requirement already satisfied: idna in .\.venv\Lib\site-packages (from tldextract==5.1.2->-r requirements.txt (line 34)) (3.17)
+Requirement already satisfied: requests-file>=1.4 in .\.venv\Lib\site-packages (from tldextract==5.1.2->-r requirements.txt (line 34)) (3.0.1)
+Requirement already satisfied: SQLAlchemy<3,>=1.4 in .\.venv\Lib\site-packages (from langchain==0.1.20->-r requirements.txt (line 40)) (2.0.50)
+Requirement already satisfied: dataclasses-json<0.7,>=0.5.7 in .\.venv\Lib\site-packages (from langchain==0.1.20->-r requirements.txt (line 40)) (0.6.7)
+Requirement already satisfied: langchain-core<0.2.0,>=0.1.52 in .\.venv\Lib\site-packages (from langchain==0.1.20->-r requirements.txt (line 40)) (0.1.53)
+Requirement already satisfied: langchain-text-splitters<0.1,>=0.0.1 in .\.venv\Lib\site-packages (from langchain==0.1.20->-r requirements.txt (line 40)) (0.0.2)
+Requirement already satisfied: langsmith<0.2.0,>=0.1.17 in .\.venv\Lib\site-packages (from langchain==0.1.20->-r requirements.txt (line 40)) (0.1.147)
+Requirement already satisfied: pydantic<3,>=1 in .\.venv\Lib\site-packages (from langchain==0.1.20->-r requirements.txt (line 40)) (2.13.4)
+Requirement already satisfied: tenacity<9.0.0,>=8.1.0 in .\.venv\Lib\site-packages (from langchain==0.1.20->-r requirements.txt (line 40)) (8.5.0)
+Requirement already satisfied: colorama in .\.venv\Lib\site-packages (from tqdm==4.66.4->-r requirements.txt (line 46)) (0.4.6)
+Requirement already satisfied: contourpy>=1.0.1 in .\.venv\Lib\site-packages (from matplotlib==3.8.4->-r requirements.txt (line 50)) (1.3.3)
+Requirement already satisfied: cycler>=0.10 in .\.venv\Lib\site-packages (from matplotlib==3.8.4->-r requirements.txt (line 50)) (0.12.1)
+Requirement already satisfied: fonttools>=4.22.0 in .\.venv\Lib\site-packages (from matplotlib==3.8.4->-r requirements.txt (line 50)) (4.63.0)
+Requirement already satisfied: kiwisolver>=1.3.1 in .\.venv\Lib\site-packages (from matplotlib==3.8.4->-r requirements.txt (line 50)) (1.5.0)
+Requirement already satisfied: pillow>=8 in .\.venv\Lib\site-packages (from matplotlib==3.8.4->-r requirements.txt (line 50)) (12.2.0)
+Requirement already satisfied: pyparsing>=2.3.1 in .\.venv\Lib\site-packages (from matplotlib==3.8.4->-r requirements.txt (line 50)) (3.3.2)
+Requirement already satisfied: python-dateutil>=2.7 in .\.venv\Lib\site-packages (from matplotlib==3.8.4->-r requirements.txt (line 50)) (2.9.0.post0)
+Requirement already satisfied: click!=8.0.0,>=7.1 in .\.venv\Lib\site-packages (from wandb==0.17.0->-r requirements.txt (line 53)) (8.4.1)
+Requirement already satisfied: docker-pycreds>=0.4.0 in .\.venv\Lib\site-packages (from wandb==0.17.0->-r requirements.txt (line 53)) (0.4.0)
+Requirement already satisfied: gitpython!=3.1.29,>=1.0.0 in .\.venv\Lib\site-packages (from wandb==0.17.0->-r requirements.txt (line 53)) (3.1.50)
+Requirement already satisfied: platformdirs in .\.venv\Lib\site-packages (from wandb==0.17.0->-r requirements.txt (line 53)) (4.10.0)
+Requirement already satisfied: protobuf!=4.21.0,<5,>=3.19.0 in .\.venv\Lib\site-packages (from wandb==0.17.0->-r requirements.txt (line 53)) (4.25.9)
+Requirement already satisfied: sentry-sdk>=1.0.0 in .\.venv\Lib\site-packages (from wandb==0.17.0->-r requirements.txt (line 53)) (2.61.1)
+Requirement already satisfied: setproctitle in .\.venv\Lib\site-packages (from wandb==0.17.0->-r requirements.txt (line 53)) (1.3.7)
+Requirement already satisfied: setuptools in .\.venv\Lib\site-packages (from wandb==0.17.0->-r requirements.txt (line 53)) (65.5.0)
+Requirement already satisfied: pytz>=2020.1 in .\.venv\Lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 56)) (2026.2)
+Requirement already satisfied: tzdata>=2022.7 in .\.venv\Lib\site-packages (from pandas==2.2.2->-r requirements.txt (line 56)) (2026.2)
+Requirement already satisfied: aiohappyeyeballs>=2.5.0 in .\.venv\Lib\site-packages (from aiohttp->datasets==2.19.1->-r requirements.txt (line 13)) (2.6.2)
+Requirement already satisfied: aiosignal>=1.4.0 in .\.venv\Lib\site-packages (from aiohttp->datasets==2.19.1->-r requirements.txt (line 13)) (1.4.0)
+Requirement already satisfied: attrs>=17.3.0 in .\.venv\Lib\site-packages (from aiohttp->datasets==2.19.1->-r requirements.txt (line 13)) (26.1.0)
+Requirement already satisfied: frozenlist>=1.1.1 in .\.venv\Lib\site-packages (from aiohttp->datasets==2.19.1->-r requirements.txt (line 13)) (1.8.0)
+Requirement already satisfied: multidict<7.0,>=4.5 in .\.venv\Lib\site-packages (from aiohttp->datasets==2.19.1->-r requirements.txt (line 13)) (6.7.1)
+Requirement already satisfied: propcache>=0.2.0 in .\.venv\Lib\site-packages (from aiohttp->datasets==2.19.1->-r requirements.txt (line 13)) (0.5.2)
+Requirement already satisfied: typing_extensions>=4.4 in .\.venv\Lib\site-packages (from aiohttp->datasets==2.19.1->-r requirements.txt (line 13)) (4.15.0)
+Requirement already satisfied: yarl<2.0,>=1.17.0 in .\.venv\Lib\site-packages (from aiohttp->datasets==2.19.1->-r requirements.txt (line 13)) (1.24.2)
+Requirement already satisfied: marshmallow<4.0.0,>=3.18.0 in .\.venv\Lib\site-packages (from dataclasses-json<0.7,>=0.5.7->langchain==0.1.20->-r requirements.txt (line 40)) (3.26.2)
+Requirement already satisfied: typing-inspect<1,>=0.4.0 in .\.venv\Lib\site-packages (from dataclasses-json<0.7,>=0.5.7->langchain==0.1.20->-r requirements.txt (line 40)) (0.9.0)
+Requirement already satisfied: jsonpatch<2.0,>=1.33 in .\.venv\Lib\site-packages (from langchain-core<0.2.0,>=0.1.52->langchain==0.1.20->-r requirements.txt (line 40)) (1.33)
+Requirement already satisfied: jsonpointer>=1.9 in .\.venv\Lib\site-packages (from jsonpatch<2.0,>=1.33->langchain-core<0.2.0,>=0.1.52->langchain==0.1.20->-r requirements.txt (line 40)) (3.1.1)
+Requirement already satisfied: httpx<1,>=0.23.0 in .\.venv\Lib\site-packages (from langsmith<0.2.0,>=0.1.17->langchain==0.1.20->-r requirements.txt (line 40)) (0.28.1)
+Requirement already satisfied: orjson<4.0.0,>=3.9.14 in .\.venv\Lib\site-packages (from langsmith<0.2.0,>=0.1.17->langchain==0.1.20->-r requirements.txt (line 40)) (3.11.9)
+Requirement already satisfied: requests-toolbelt<2.0.0,>=1.0.0 in .\.venv\Lib\site-packages (from langsmith<0.2.0,>=0.1.17->langchain==0.1.20->-r requirements.txt (line 40)) (1.0.0)
+Requirement already satisfied: anyio in .\.venv\Lib\site-packages (from httpx<1,>=0.23.0->langsmith<0.2.0,>=0.1.17->langchain==0.1.20->-r requirements.txt (line 40)) (4.13.0)
+Requirement already satisfied: certifi in .\.venv\Lib\site-packages (from httpx<1,>=0.23.0->langsmith<0.2.0,>=0.1.17->langchain==0.1.20->-r requirements.txt (line 40)) (2026.5.20)
+Requirement already satisfied: httpcore==1.* in .\.venv\Lib\site-packages (from httpx<1,>=0.23.0->langsmith<0.2.0,>=0.1.17->langchain==0.1.20->-r requirements.txt (line 40)) (1.0.9)
+Requirement already satisfied: h11>=0.16 in .\.venv\Lib\site-packages (from httpcore==1.*->httpx<1,>=0.23.0->langsmith<0.2.0,>=0.1.17->langchain==0.1.20->-r requirements.txt (line 40)) (0.16.0)
+Requirement already satisfied: annotated-types>=0.6.0 in .\.venv\Lib\site-packages (from pydantic<3,>=1->langchain==0.1.20->-r requirements.txt (line 40)) (0.7.0)
+Requirement already satisfied: pydantic-core==2.46.4 in .\.venv\Lib\site-packages (from pydantic<3,>=1->langchain==0.1.20->-r requirements.txt (line 40)) (2.46.4)
+Requirement already satisfied: typing-inspection>=0.4.2 in .\.venv\Lib\site-packages (from pydantic<3,>=1->langchain==0.1.20->-r requirements.txt (line 40)) (0.4.2)
+Requirement already satisfied: charset_normalizer<4,>=2 in .\.venv\Lib\site-packages (from requests->transformers==4.40.2->-r requirements.txt (line 10)) (3.4.7)
+Requirement already satisfied: urllib3<3,>=1.26 in .\.venv\Lib\site-packages (from requests->transformers==4.40.2->-r requirements.txt (line 10)) (2.7.0)
+Requirement already satisfied: greenlet>=1 in .\.venv\Lib\site-packages (from SQLAlchemy<3,>=1.4->langchain==0.1.20->-r requirements.txt (line 40)) (3.5.1)
+Requirement already satisfied: mypy-extensions>=0.3.0 in .\.venv\Lib\site-packages (from typing-inspect<1,>=0.4.0->dataclasses-json<0.7,>=0.5.7->langchain==0.1.20->-r requirements.txt (line 40)) (1.1.0)
+Requirement already satisfied: six>=1.4.0 in .\.venv\Lib\site-packages (from docker-pycreds>=0.4.0->wandb==0.17.0->-r requirements.txt (line 53)) (1.17.0)
+Requirement already satisfied: gitdb<5,>=4.0.1 in .\.venv\Lib\site-packages (from gitpython!=3.1.29,>=1.0.0->wandb==0.17.0->-r requirements.txt (line 53)) (4.0.12)
+Requirement already satisfied: smmap<6,>=3.0.1 in .\.venv\Lib\site-packages (from gitdb<5,>=4.0.1->gitpython!=3.1.29,>=1.0.0->wandb==0.17.0->-r requirements.txt (line 53)) (5.0.3)
+Requirement already satisfied: sympy>=1.13.3 in .\.venv\Lib\site-packages (from torch>=1.13.0->peft==0.10.0->-r requirements.txt (line 19)) (1.14.0)
+Requirement already satisfied: networkx in .\.venv\Lib\site-packages (from torch>=1.13.0->peft==0.10.0->-r requirements.txt (line 19)) (3.6.1)
+Requirement already satisfied: jinja2 in .\.venv\Lib\site-packages (from torch>=1.13.0->peft==0.10.0->-r requirements.txt (line 19)) (3.1.6)
+Requirement already satisfied: mpmath<1.4,>=1.1.0 in .\.venv\Lib\site-packages (from sympy>=1.13.3->torch>=1.13.0->peft==0.10.0->-r requirements.txt (line 19)) (1.3.0)
+Requirement already satisfied: MarkupSafe>=2.0 in .\.venv\Lib\site-packages (from jinja2->torch>=1.13.0->peft==0.10.0->-r requirements.txt (line 19)) (3.0.3)
+(.venv) PS C:\Users\user\Desktop\phishing_detection> python 01_data_pipeline.py
+
+======================================================================
+  PHASE 1: DATA PIPELINE - Download & Merge
+======================================================================
+
+[>] [D1] Loading ealvaradob/phishing-dataset from HuggingFace Hub...
+  Parsing train: 100%|████████████████████████████████████████████████████████| 77677/77677 [00:05<00:00, 14550.17it/s]
+[OK] 77,677 samples | phishing: 32,702 | legitimate: 44,975
+[>] [D2] Downloading SMS Spam Collection from UCI...
+  Parsing SMS Spam: 5574it [00:00, 229042.45it/s]
+[OK] 5,574 samples | phishing: 747 | legitimate: 4,827
+[>] [D3] Downloading SpamAssassin corpus from Apache...
+  Parsing 20030228_spam.tar.bz2: 100%|█████████████████████████████████████████████| 502/502 [00:00<00:00, 1896.83it/s]
+  Parsing 20030228_easy_ham.tar.bz2: 100%|███████████████████████████████████████| 2502/2502 [00:00<00:00, 4292.66it/s]
+  Parsing 20030228_hard_ham.tar.bz2: 100%|█████████████████████████████████████████| 252/252 [00:00<00:00, 1079.88it/s]
+[OK] 3,253 samples | phishing: 501 | legitimate: 2,752
+[>] [D4] Downloading PhishTank verified phishing URLs...
+  [WARN] Error reading PhishTank: Invalid data stream
+[SKIP] No URLs extracted
+
+[OK] Total merged: 70,514 samples
+     Phishing: 22,712
+     Legitimate: 47,802
+[OK] Saved to C:\Users\user\Desktop\phishing_detection\data\processed\dataset_merged.csv
+[OK] URL subset: 19,131 (saved to C:\Users\user\Desktop\phishing_detection\data\processed\url_dataset.csv)
+(.venv) PS C:\Users\user\Desktop\phishing_detection> python c:\Users\user\Desktop\phishing_detection\02_finetune_roberta_2.py
+W0608 16:47:36.068000 33492 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+Could not find the bitsandbytes CUDA binary at WindowsPath('C:/Users/user/Desktop/phishing_detection/.venv/Lib/site-packages/bitsandbytes/libbitsandbytes_cuda128.dll')
+The installed version of bitsandbytes was compiled without GPU support. 8-bit optimizers, 8-bit multiplication, and GPU quantization are unavailable.
+
+======================================================================
+  PHASE 2: RoBERTa Fine-tuning (STABLE VERSION)
+======================================================================
+
+[OK] Using cached splits
+
+[>] Loading tokenizer: roberta-base
+[>] Converting datasets...
+Tokenizing train (num_proc=4):   0%|                                                  | 0/49359 [00:00<?, ? examples/s]W0608 16:47:50.497000 38364 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:47:50.497000 9576 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:47:50.497000 23996 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:47:50.498000 34688 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:47:50.498000 36464 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+Tokenizing train (num_proc=4): 100%|████████████████████████████████████| 49359/49359 [00:21<00:00, 2310.70 examples/s]
+Tokenizing val (num_proc=4):   0%|                                                    | 0/10577 [00:00<?, ? examples/s]W0608 16:48:11.824000 21644 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:48:11.829000 34396 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:48:11.829000 27372 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:48:11.831000 16160 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:48:11.832000 8544 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+Tokenizing val (num_proc=4): 100%|███████████████████████████████████████| 10577/10577 [00:15<00:00, 702.00 examples/s]
+Tokenizing test (num_proc=4):   0%|                                                   | 0/10577 [00:00<?, ? examples/s]W0608 16:48:27.085000 12580 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:48:27.085000 35104 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:48:27.090000 26480 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:48:27.094000 14664 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:48:27.094000 24120 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+Tokenizing test (num_proc=4): 100%|██████████████████████████████████████| 10577/10577 [00:15<00:00, 701.41 examples/s]
+
+[>] Loading model: roberta-base
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[OK] Device detected: cuda
+Torch: 2.7.0+cu128
+CUDA: 12.8
+Device: NVIDIA GeForce RTX 5080 Laptop GPU
+Capability: (12, 0)
+
+[>] START TRAINING...
+
+  0%|                                                                                         | 0/2313 [00:00<?, ?it/s]W0608 16:48:42.616000 7648 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:48:56.127000 25460 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+{'loss': 0.6415, 'grad_norm': 0.7903869152069092, 'learning_rate': 7.194244604316547e-06, 'epoch': 0.06}               
+{'loss': 0.446, 'grad_norm': 8.52792739868164, 'learning_rate': 1.4388489208633095e-05, 'epoch': 0.13}                 
+{'loss': 0.2491, 'grad_norm': 12.989386558532715, 'learning_rate': 1.9898804047838087e-05, 'epoch': 0.19}              
+{'loss': 0.2064, 'grad_norm': 6.594667434692383, 'learning_rate': 1.9438822447102117e-05, 'epoch': 0.26}               
+{'loss': 0.1831, 'grad_norm': 9.216480255126953, 'learning_rate': 1.8978840846366147e-05, 'epoch': 0.32}               
+{'loss': 0.1703, 'grad_norm': 9.31328296661377, 'learning_rate': 1.8518859245630177e-05, 'epoch': 0.39}                
+{'loss': 0.1642, 'grad_norm': 7.3404316902160645, 'learning_rate': 1.8058877644894207e-05, 'epoch': 0.45}              
+{'loss': 0.1536, 'grad_norm': 10.70256233215332, 'learning_rate': 1.7598896044158234e-05, 'epoch': 0.52}               
+{'loss': 0.1508, 'grad_norm': 3.986227035522461, 'learning_rate': 1.7138914443422264e-05, 'epoch': 0.58}               
+{'loss': 0.1479, 'grad_norm': 7.293673515319824, 'learning_rate': 1.6678932842686294e-05, 'epoch': 0.65}               
+{'loss': 0.154, 'grad_norm': 5.969019889831543, 'learning_rate': 1.6218951241950324e-05, 'epoch': 0.71}                
+{'loss': 0.1494, 'grad_norm': 11.300493240356445, 'learning_rate': 1.575896964121435e-05, 'epoch': 0.78}               
+{'loss': 0.1306, 'grad_norm': 5.042374134063721, 'learning_rate': 1.529898804047838e-05, 'epoch': 0.84}                
+{'loss': 0.1194, 'grad_norm': 5.830540657043457, 'learning_rate': 1.4839006439742412e-05, 'epoch': 0.91}               
+{'loss': 0.1255, 'grad_norm': 13.65063762664795, 'learning_rate': 1.437902483900644e-05, 'epoch': 0.97}                
+ 33%|██████████████████████████▎                                                    | 771/2313 [04:27<07:58,  3.22it/s]W0608 16:53:10.677000 23288 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:53:23.561000 28640 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+{'eval_loss': 0.11386031657457352, 'eval_accuracy': 0.9610475560177744, 'eval_precision': 0.9719508351717617, 'eval_recall': 0.9051951863809803, 'eval_f1': 0.9373860182370821, 'eval_runtime': 45.999, 'eval_samples_per_second': 229.94, 'eval_steps_per_second': 7.196, 'epoch': 1.0}
+ 33%|██████████████████████████▎                                                    | 771/2313 [05:14<07:58,  3.22it/s]W0608 16:53:58.059000 15756 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:54:11.903000 5144 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+{'loss': 0.1147, 'grad_norm': 6.053848743438721, 'learning_rate': 1.391904323827047e-05, 'epoch': 1.04}                
+{'loss': 0.0869, 'grad_norm': 2.8403730392456055, 'learning_rate': 1.34590616375345e-05, 'epoch': 1.1}                 
+{'loss': 0.0998, 'grad_norm': 8.399736404418945, 'learning_rate': 1.2999080036798527e-05, 'epoch': 1.17}               
+{'loss': 0.0935, 'grad_norm': 11.057395935058594, 'learning_rate': 1.2539098436062557e-05, 'epoch': 1.23}              
+{'loss': 0.0818, 'grad_norm': 4.219409942626953, 'learning_rate': 1.2079116835326587e-05, 'epoch': 1.3}                
+{'loss': 0.096, 'grad_norm': 3.337717294692993, 'learning_rate': 1.1619135234590617e-05, 'epoch': 1.36}                
+{'loss': 0.091, 'grad_norm': 3.855949640274048, 'learning_rate': 1.1159153633854647e-05, 'epoch': 1.43}                
+{'loss': 0.0861, 'grad_norm': 15.195358276367188, 'learning_rate': 1.0699172033118676e-05, 'epoch': 1.49}              
+{'loss': 0.0874, 'grad_norm': 6.40974760055542, 'learning_rate': 1.0239190432382706e-05, 'epoch': 1.56}                
+{'loss': 0.0743, 'grad_norm': 6.880146503448486, 'learning_rate': 9.779208831646734e-06, 'epoch': 1.62}                
+{'loss': 0.0877, 'grad_norm': 5.946386814117432, 'learning_rate': 9.319227230910764e-06, 'epoch': 1.69}                
+{'loss': 0.0883, 'grad_norm': 8.100194931030273, 'learning_rate': 8.859245630174794e-06, 'epoch': 1.75}                
+{'loss': 0.0731, 'grad_norm': 6.774838447570801, 'learning_rate': 8.399264029438822e-06, 'epoch': 1.82}                
+{'loss': 0.0818, 'grad_norm': 9.135664939880371, 'learning_rate': 7.939282428702852e-06, 'epoch': 1.88}                
+{'loss': 0.0816, 'grad_norm': 9.057727813720703, 'learning_rate': 7.4793008279668824e-06, 'epoch': 1.94}               
+ 67%|████████████████████████████████████████████████████                          | 1542/2313 [09:43<03:59,  3.22it/s]W0608 16:58:26.561000 7800 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:58:37.816000 34532 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+{'eval_loss': 0.0959620401263237, 'eval_accuracy': 0.967760234471022, 'eval_precision': 0.9479836353009936, 'eval_recall': 0.9521573231582037, 'eval_f1': 0.9500658954458925, 'eval_runtime': 41.5815, 'eval_samples_per_second': 254.368, 'eval_steps_per_second': 7.96, 'epoch': 2.0}
+ 67%|████████████████████████████████████████████████████                          | 1542/2313 [10:25<03:59,  3.22it/s]W0608 16:59:09.659000 36880 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 16:59:23.913000 20516 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+{'loss': 0.0797, 'grad_norm': 5.222009658813477, 'learning_rate': 7.019319227230912e-06, 'epoch': 2.01}                
+{'loss': 0.059, 'grad_norm': 3.9372246265411377, 'learning_rate': 6.559337626494941e-06, 'epoch': 2.07}                
+{'loss': 0.0584, 'grad_norm': 4.350820541381836, 'learning_rate': 6.09935602575897e-06, 'epoch': 2.14}                 
+{'loss': 0.056, 'grad_norm': 4.167433261871338, 'learning_rate': 5.639374425023e-06, 'epoch': 2.2}                     
+{'loss': 0.0579, 'grad_norm': 8.099013328552246, 'learning_rate': 5.179392824287029e-06, 'epoch': 2.27}                
+{'loss': 0.0556, 'grad_norm': 8.013164520263672, 'learning_rate': 4.719411223551058e-06, 'epoch': 2.33}                
+{'loss': 0.0419, 'grad_norm': 4.522765159606934, 'learning_rate': 4.2594296228150874e-06, 'epoch': 2.4}                
+{'loss': 0.0567, 'grad_norm': 4.546938896179199, 'learning_rate': 3.799448022079117e-06, 'epoch': 2.46}                
+{'loss': 0.0401, 'grad_norm': 4.83588981628418, 'learning_rate': 3.3394664213431466e-06, 'epoch': 2.53}                
+{'loss': 0.0716, 'grad_norm': 3.2809722423553467, 'learning_rate': 2.8794848206071758e-06, 'epoch': 2.59}              
+{'loss': 0.0606, 'grad_norm': 6.225761890411377, 'learning_rate': 2.4195032198712054e-06, 'epoch': 2.66}               
+{'loss': 0.0509, 'grad_norm': 6.6369948387146, 'learning_rate': 1.959521619135235e-06, 'epoch': 2.72}                  
+{'loss': 0.0461, 'grad_norm': 3.2491183280944824, 'learning_rate': 1.4995400183992641e-06, 'epoch': 2.79}              
+{'loss': 0.0533, 'grad_norm': 2.549779176712036, 'learning_rate': 1.0395584176632935e-06, 'epoch': 2.85}               
+{'loss': 0.0569, 'grad_norm': 11.586748123168945, 'learning_rate': 5.79576816927323e-07, 'epoch': 2.92}                
+{'loss': 0.0651, 'grad_norm': 0.7023254036903381, 'learning_rate': 1.1959521619135236e-07, 'epoch': 2.98}              
+100%|██████████████████████████████████████████████████████████████████████████████| 2313/2313 [14:54<00:00,  3.20it/s]W0608 17:03:38.142000 27136 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 17:03:50.443000 25592 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+{'eval_loss': 0.09923412650823593, 'eval_accuracy': 0.9718256594497494, 'eval_precision': 0.9647234678624813, 'eval_recall': 0.9471675961256237, 'eval_f1': 0.9558649289099526, 'eval_runtime': 42.0513, 'eval_samples_per_second': 251.526, 'eval_steps_per_second': 7.871, 'epoch': 3.0}
+{'train_runtime': 940.0013, 'train_samples_per_second': 157.529, 'train_steps_per_second': 2.461, 'train_loss': 0.11756452184912966, 'epoch': 3.0}                                                                                             
+100%|██████████████████████████████████████████████████████████████████████████████| 2313/2313 [15:40<00:00,  2.46it/s]
+
+[>] Final evaluation...
+W0608 17:04:23.043000 33656 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0608 17:04:36.457000 15496 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+100%|████████████████████████████████████████████████████████████████████████████████| 331/331 [00:16<00:00, 20.16it/s]
+
+[OK] TEST RESULTS:
+  eval_loss: 0.0966
+  eval_accuracy: 0.9715
+  eval_precision: 0.9650
+  eval_recall: 0.9460
+  eval_f1: 0.9554
+  eval_runtime: 44.7959
+  eval_samples_per_second: 236.1150
+  eval_steps_per_second: 7.3890
+
+[OK] Model saved: c:\Users\user\Desktop\phishing_detection\models\roberta_final
+[>] Saving test-set probability scores...
+[OK] Probabilities saved → results/roberta_probs.csv
+[>] Plotting training curves...
+[OK] Saved: c:\Users\user\Desktop\phishing_detection\results\training_curves.png
+
+[OK] PHASE 2 COMPLETE
+(.venv) PS C:\Users\user\Desktop\phishing_detection> python 03_url_features_2.py                                      
+
+======================================================================
+  PHASE 3: XGBoost URL Feature Classifier
+======================================================================
+
+[>] Loading URL dataset...
+[OK] Loaded 19,131 URL samples
+     Phishing: 4,168
+     Legitimate: 14,963
+
+[>] Extracting URL features...
+[OK] Feature matrix: (19131, 36)
+
+[>] Starting 5-fold cross-validation...
+   Fold 1/5... Acc: 0.852, AUC: 0.912
+   Fold 2/5... Acc: 0.853, AUC: 0.901
+   Fold 3/5... Acc: 0.840, AUC: 0.902
+   Fold 4/5... Acc: 0.861, AUC: 0.908
+   Fold 5/5... Acc: 0.855, AUC: 0.905
+
+[OK] Cross-Validation Results:
+     Mean Accuracy: 0.8522 +/- 0.0068
+     Mean AUC: 0.9058 +/- 0.0042
+
+[>] Training final model on all data...
+     scale_pos_weight = 3.59
+[OK] Feature importance saved to C:\Users\user\Desktop\phishing_detection\results\xgb_feature_importance.png
+[OK] Model saved to C:\Users\user\Desktop\phishing_detection\models\xgb_url_classifier.pkl
+
+[OK] Phase 3 Complete!
+(.venv) PS C:\Users\user\Desktop\phishing_detection> python c:\Users\user\Desktop\phishing_detection\04_llm_explain_2.py
+
+
+======================================================================
+  PHASE 4: LLaMA-3 Explanation Module
+======================================================================
+
+[OK] Borderline predictions (p in 35%–65%): 5,209
+[OK] Selected 50 samples for LLaMA-3 explanation
+
+[WARN] Ollama running but 'llama3' not found.
+       Available: ['huihui_ai/qwen3-coder-abliterated', 'gemma4', 'gemma4']
+       Run: ollama pull llama3
+
+[INFO] Skipping live generation — saving placeholder report
+[OK] Placeholder saved → c:\Users\user\Desktop\phishing_detection\results\llm_explanations.csv
+     Re-run after: ollama pull llama3  &&  ollama serve
+(.venv) PS C:\Users\user\Desktop\phishing_detection> python c:\Users\user\Desktop\phishing_detection\04_llm_explain_2.py
+
+Traceback (most recent call last):
+  File "c:\Users\user\Desktop\phishing_detection\04_llm_explain_2.py", line 17, in <module>
+    from config import PROC_DIR, RESULTS_DIR, EXPLAIN_THRESHOLD, LLAMA_MODEL
+  File "c:\Users\user\Desktop\phishing_detection\config.py", line 77
+    Qwen3-Coder_MODEL      = "huihui_ai/qwen3-coder-abliterated"          # Ollama model tag
+    ^^^^^^^^^^^^^^^^^
+SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?
+(.venv) PS C:\Users\user\Desktop\phishing_detection> python c:\Users\user\Desktop\phishing_detection\04_llm_explain_2.py
+
+Traceback (most recent call last):
+  File "c:\Users\user\Desktop\phishing_detection\04_llm_explain_2.py", line 17, in <module>
+    from config import PROC_DIR, RESULTS_DIR, EXPLAIN_THRESHOLD, LLAMA_MODEL
+  File "c:\Users\user\Desktop\phishing_detection\config.py", line 77
+    Qwen3-Coder_MODEL      = "huihui_ai/qwen3-coder-abliterated"          # Ollama model tag
+    ^^^^^^^^^^^^^^^^^
+SyntaxError: cannot assign to expression here. Maybe you meant '==' instead of '='?
+(.venv) PS C:\Users\user\Desktop\phishing_detection> python c:\Users\user\Desktop\phishing_detection\04_llm_explain_2.py
+
+
+======================================================================
+  PHASE 4: Qwen3_Coder Explanation Module
+======================================================================
+
+[OK] Borderline predictions (p in 35%–65%): 5,209
+[OK] Selected 50 samples for Qwen3_Coder explanation
+
+[OK] Ollama running | Model 'huihui_ai/qwen3-coder-abliterated' ready ✓
+
+[>] Generating 50 explanations via Ollama (huihui_ai/qwen3-coder-abliterated)...
+  [01/50] True=LEGIT | RoBERTa p=0.495 | LLM=LEGITIMATE (HIGH) | This appears to be a legitimate hotel website with standard ...
+  [02/50] True=PHISH | RoBERTa p=0.579 | LLM=LEGITIMATE (MEDIUM) | The URL appears to be from a legitimate Webflow service but ...
+  [03/50] True=LEGIT | RoBERTa p=0.385 | LLM=LEGITIMATE (MEDIUM) | The URL appears to be from a legitimate academic source. How...
+  [04/50] True=LEGIT | RoBERTa p=0.452 | LLM=LEGITIMATE (HIGH) | This is a technical email thread about RPM package managemen...
+  [05/50] True=PHISH | RoBERTa p=0.600 | LLM=PHISHING   (MEDIUM) | The obfuscated URL structure with 'really2.php' suggests a c...
+  [06/50] True=LEGIT | RoBERTa p=0.397 | LLM=LEGITIMATE (HIGH) | This is a legitimate PGP-signed email with technical content...
+  [07/50] True=LEGIT | RoBERTa p=0.457 | LLM=LEGITIMATE (HIGH) | This appears to be a legitimate newspaper article from The T...
+  [08/50] True=LEGIT | RoBERTa p=0.481 | LLM=LEGITIMATE (HIGH) | This appears to be a legitimate academic conference announce...
+  [09/50] True=LEGIT | RoBERTa p=0.422 | LLM=LEGITIMATE (MEDIUM) | Simple domain name without obvious phishing indicators. Howe...
+  [10/50] True=LEGIT | RoBERTa p=0.446 | LLM=LEGITIMATE (HIGH) | Academic conference announcement with no suspicious elements...
+  [11/50] True=LEGIT | RoBERTa p=0.452 | LLM=PHISHING   (MEDIUM) | The URL appears to be a shortened or obfuscated link that do...
+  [12/50] True=LEGIT | RoBERTa p=0.478 | LLM=LEGITIMATE (HIGH) | This appears to be CSS styling code rather than an email mes...
+  [13/50] True=LEGIT | RoBERTa p=0.436 | LLM=LEGITIMATE (HIGH) | This is a formal security advisory from CERT/CC with proper ...
+  [14/50] True=LEGIT | RoBERTa p=0.393 | LLM=LEGITIMATE (MEDIUM) | URL appears to be from a forum platform rather than a phishi...
+  [15/50] True=LEGIT | RoBERTa p=0.486 | LLM=PHISHING   (MEDIUM) | The URL structure appears manipulated with extra dots and th...
+  [16/50] True=LEGIT | RoBERTa p=0.458 | LLM=LEGITIMATE (HIGH) | This appears to be legitimate CSS and JavaScript code for a ...
+  [17/50] True=LEGIT | RoBERTa p=0.454 | LLM=LEGITIMATE (HIGH) | This appears to be legitimate JavaScript code for a lyrics w...
+  [18/50] True=LEGIT | RoBERTa p=0.385 | LLM=PHISHING   (MEDIUM) | Suspicious shortened domain with unusual path structure sugg...
+  [19/50] True=PHISH | RoBERTa p=0.544 | LLM=LEGITIMATE (MEDIUM) | The message appears to be a website script or JavaScript cod...
+  [20/50] True=LEGIT | RoBERTa p=0.466 | LLM=LEGITIMATE (HIGH) | This appears to be an academic linguistic query with no phis...
+  [21/50] True=LEGIT | RoBERTa p=0.482 | LLM=LEGITIMATE (HIGH) | This appears to be legitimate JavaScript tracking code from ...
+  [22/50] True=LEGIT | RoBERTa p=0.486 | LLM=LEGITIMATE (MEDIUM) | Message appears to be a personal communication about a drug ...
+  [23/50] True=LEGIT | RoBERTa p=0.393 | LLM=LEGITIMATE (MEDIUM) | Simple domain URL without obvious phishing indicators. No ur...
+  [24/50] True=LEGIT | RoBERTa p=0.484 | LLM=LEGITIMATE (HIGH) | This appears to be embedded JavaScript code from a dental we...
+  [25/50] True=LEGIT | RoBERTa p=0.483 | LLM=LEGITIMATE (HIGH) | Informal internal communication with natural language and no...
+  [26/50] True=LEGIT | RoBERTa p=0.479 | LLM=LEGITIMATE (HIGH) | This is a technical programming discussion about pthread fun...
+  [27/50] True=LEGIT | RoBERTa p=0.452 | LLM=LEGITIMATE (HIGH) | This appears to be an academic or philosophical discussion t...
+  [28/50] True=LEGIT | RoBERTa p=0.384 | LLM=LEGITIMATE (HIGH) | Simple URL redirect without any urgency language or suspicio...
+  [29/50] True=LEGIT | RoBERTa p=0.501 | LLM=LEGITIMATE (HIGH) | This appears to be legitimate JavaScript tracking code from ...
+  [30/50] True=LEGIT | RoBERTa p=0.492 | LLM=LEGITIMATE (HIGH) | Professional business communication with standard formatting...
+  [31/50] True=LEGIT | RoBERTa p=0.473 | LLM=PHISHING   (MEDIUM) | Paytm brand is impersonated with suspicious tracking code th...
+  [32/50] True=LEGIT | RoBERTa p=0.401 | LLM=LEGITIMATE (HIGH) | This appears to be a news article or business report about P...
+  [33/50] True=LEGIT | RoBERTa p=0.468 | LLM=LEGITIMATE (HIGH) | Informal personal message using casual language and texting ...
+  [34/50] True=LEGIT | RoBERTa p=0.479 | LLM=LEGITIMATE (HIGH) | URL points to a legitimate Wikipedia page with proper encodi...
+  [35/50] True=LEGIT | RoBERTa p=0.484 | LLM=LEGITIMATE (HIGH) | This appears to be a legitimate Amazon Seller Forums post wi...
+  [36/50] True=LEGIT | RoBERTa p=0.377 | LLM=LEGITIMATE (MEDIUM) | The URL appears to be from a LinkedIn directory service rath...
+  [37/50] True=LEGIT | RoBERTa p=0.486 | LLM=LEGITIMATE (HIGH) | This appears to be a legitimate internal communication about...
+  [38/50] True=LEGIT | RoBERTa p=0.459 | LLM=LEGITIMATE (MEDIUM) | The URL appears to be a shortened link without obvious phish...
+  [39/50] True=LEGIT | RoBERTa p=0.436 | LLM=LEGITIMATE (HIGH) | This appears to be a forwarded internal email with normal bu...
+  [40/50] True=LEGIT | RoBERTa p=0.366 | LLM=LEGITIMATE (HIGH) | This appears to be a legitimate business email exchange disc...
+  [41/50] True=LEGIT | RoBERTa p=0.490 | LLM=PHISHING   (HIGH) | The URL contains excessive JavaScript code and unusual chara...
+  [42/50] True=LEGIT | RoBERTa p=0.473 | LLM=LEGITIMATE (HIGH) | Personal message with no business context or suspicious elem...
+  [43/50] True=LEGIT | RoBERTa p=0.481 | LLM=LEGITIMATE (HIGH) | Technical discussion about data storage and internet connect...
+  [44/50] True=LEGIT | RoBERTa p=0.433 | LLM=LEGITIMATE (HIGH) | This appears to be a legitimate business email exchange abou...
+  [45/50] True=LEGIT | RoBERTa p=0.439 | LLM=PHISHING   (MEDIUM) | The URL structure suggests a potential phishing page with a ...
+  [46/50] True=LEGIT | RoBERTa p=0.482 | LLM=LEGITIMATE (HIGH) | Technical email about spreadsheet modifications with no susp...
+  [47/50] True=LEGIT | RoBERTa p=0.483 | LLM=LEGITIMATE (LOW) | This is an incomplete message with no context or attachments...
+  [48/50] True=LEGIT | RoBERTa p=0.452 | LLM=LEGITIMATE (HIGH) | This appears to be a standard JavaScript tracking code snipp...
+  [49/50] True=LEGIT | RoBERTa p=0.451 | LLM=LEGITIMATE (HIGH) | This is a legitimate email thread from a Linux user group ma...
+  [50/50] True=LEGIT | RoBERTa p=0.419 | LLM=LEGITIMATE (MEDIUM) | URL structure appears legitimate with a weather-related doma...
+
+[OK] Explanations saved → c:\Users\user\Desktop\phishing_detection\results\llm_explanations.csv
+[OK] Sample report → c:\Users\user\Desktop\phishing_detection\results\llm_explanation_sample.txt
+
+[OK] LLM–Ground Truth Agreement: 84.0% (42/50 valid verdicts)
+
+[OK] Phase 4 Complete!
+(.venv) PS C:\Users\user\Desktop\phishing_detection> python c:\Users\user\Desktop\phishing_detection\05_ensemble_eval_2.py
+
+======================================================================
+  PHASE 5: Ensemble Evaluation
+======================================================================
+
+[>] Loading test data...
+[OK] Test set: 10,577 samples
+
+[>] Generating base model predictions...
+W0608 17:32:31.802000 24132 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+   RoBERTa... [OK]
+   XGBoost... [OK]
+
+[>] Stacking ensemble (LogisticRegression meta-classifier)...
+   Getting val-set predictions for meta-training...
+   [OK] Stacking meta-classifier trained on validation OOF predictions
+
+[>] Threshold calibration (precision >= 0.95 target)...
+   Best threshold meeting Precision>=0.95:
+   t=0.35  Precision=0.9625  Recall=0.9498  F1=0.9561
+   [OK] Calibration results → c:\Users\user\Desktop\phishing_detection\results\threshold_calibration.json
+
+[OK] Ensemble Results (threshold=0.50):
+     Accuracy: 0.9711
+     F1-Score: 0.9546
+
+[OK] Confusion matrix saved to c:\Users\user\Desktop\phishing_detection\results\confusion_matrix.png
+[OK] ROC/PR curves saved to c:\Users\user\Desktop\phishing_detection\results\roc_pr_curves.png
+[OK] Predictions saved to c:\Users\user\Desktop\phishing_detection\results\ensemble_predictions.csv
+
+[OK] Report saved to c:\Users\user\Desktop\phishing_detection\results\classification_report.txt
+
+[OK] Phase 5 Complete! All results saved to results/
+(.venv) PS C:\Users\user\Desktop\phishing_detection> python c:\Users\user\Desktop\phishing_detection\06_baseline_comparison.py
+=================================================================
+  PHASE 6: Baseline Comparison
+=================================================================
+
+[>] Loading data splits...
+  Train: 49,359  |  Test: 10,577
+
+[1] TF-IDF + Naive Bayes...
+     Precision=0.8267  Recall=0.7869  F1=0.8063  AUC=0.9436  (8.4s total)
+
+[2] TF-IDF + Logistic Regression...
+     Precision=0.8686  Recall=0.8403  F1=0.8542  AUC=0.9688  (11.1s total)
+
+[3] XGBoost URL-only (saved model)...
+     [SKIP] No URLs found in test set
+
+[4] RoBERTa-base standalone (binary metrics)...
+W0608 17:37:47.156000 38576 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+     Device: cuda
+     Precision=0.9647  Recall=0.9457  F1=0.9551  AUC=0.9948  (86.0s for 10,577 samples)
+
+[5] Ensemble (from saved predictions)...
+     Columns detected: ['text', 'true_label', 'roberta_prob', 'xgb_prob', 'ensemble_prob', 'ensemble_pred']
+     Precision=0.9649  Recall=0.9445  F1=0.9546  AUC=N/A
+
+  JSON saved → c:\Users\user\Desktop\phishing_detection\results\baseline_comparison.json
+
+PHISHING DETECTION — FULL BASELINE COMPARISON
+(All metrics: binary, phishing class = positive label)
+───────────────────────────────────────────────────────────────────────────
+Model                                  Prec     Rec      F1     Acc     AUC
+───────────────────────────────────────────────────────────────────────────
+  TF-IDF + Naive Bayes               0.8267✗  0.7869✗  0.8063✗  0.8782  0.9436✗
+  TF-IDF + Logistic Regression       0.8686✗  0.8403✗  0.8542✗  0.9076  0.9688✗
+  XGBoost (URL features only)       [SKIPPED]
+  RoBERTa-base (fine-tuned)          0.9647✓  0.9457✓  0.9551✓  0.9714  0.9948✓
+  Ensemble (RoBERTa + XGBoost)       0.9649✓  0.9445✓  0.9546✓  0.9711      N/A
+───────────────────────────────────────────────────────────────────────────
+✓ = meets proposal target threshold  ✗ = below target
+Targets: Precision≥0.95  Recall≥0.92  F1≥0.93  AUC-ROC≥0.97
+
+  Table saved → c:\Users\user\Desktop\phishing_detection\results\baseline_comparison.txt
+
+  Chart saved → c:\Users\user\Desktop\phishing_detection\results\baseline_comparison.png
+
+✅ Phase 6 complete. Results in results/baseline_comparison.*
+訓練記錄結束
+======================================================================================================================
+
+[OK] Using cached splits
+
+[>] Loading tokenizer: roberta-base
+[>] Converting datasets...
+Tokenizing train (num_proc=4):   0%|                                | 0/49359 [00:00<?, ? examples/s]W0605 17:39:41.565000 35712 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:39:41.567000 30400 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:39:41.576000 30084 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:39:41.576000 24288 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:39:41.578000 28660 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+Tokenizing train (num_proc=4): 100%|██████████████████| 49359/49359 [00:40<00:00, 1204.70 examples/s]
+Tokenizing val (num_proc=4):   0%|                                  | 0/10577 [00:00<?, ? examples/s]W0605 17:40:22.563000 34396 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:40:22.563000 41568 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:40:22.563000 34592 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:40:22.563000 35368 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:40:22.563000 5492 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+Tokenizing val (num_proc=4): 100%|█████████████████████| 10577/10577 [00:17<00:00, 599.34 examples/s]
+Tokenizing test (num_proc=4):   0%|                                 | 0/10577 [00:00<?, ? examples/s]W0605 17:40:40.395000 19120 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:40:40.395000 42792 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:40:40.395000 42028 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:40:40.395000 42564 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:40:40.395000 37000 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+Tokenizing test (num_proc=4): 100%|████████████████████| 10577/10577 [00:19<00:00, 548.19 examples/s]
+
+[>] Loading model: roberta-base
+Some weights of RobertaForSequenceClassification were not initialized from the model checkpoint at roberta-base and are newly initialized: ['classifier.dense.bias', 'classifier.dense.weight', 'classifier.out_proj.bias', 'classifier.out_proj.weight']
+You should probably TRAIN this model on a down-stream task to be able to use it for predictions and inference.
+[OK] Device detected: cuda
+Torch: 2.7.0+cu128
+CUDA: 12.8
+Device: NVIDIA GeForce RTX 5080 Laptop GPU
+Capability: (12, 0)
+
+[>] START TRAINING...
+
+  0%|                                                                       | 0/2313 [00:00<?, ?it/s]W0605 17:40:59.424000 9960 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:41:14.179000 42072 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+{'loss': 0.6415, 'grad_norm': 0.7903869152069092, 'learning_rate': 7.194244604316547e-06, 'epoch': 0.06}
+{'loss': 0.446, 'grad_norm': 8.52792739868164, 'learning_rate': 1.4388489208633095e-05, 'epoch': 0.13}
+{'loss': 0.2491, 'grad_norm': 12.989386558532715, 'learning_rate': 1.9898804047838087e-05, 'epoch': 0.19}
+{'loss': 0.2064, 'grad_norm': 6.594667434692383, 'learning_rate': 1.9438822447102117e-05, 'epoch': 0.26}
+{'loss': 0.1831, 'grad_norm': 9.216480255126953, 'learning_rate': 1.8978840846366147e-05, 'epoch': 0.32}
+{'loss': 0.1703, 'grad_norm': 9.31328296661377, 'learning_rate': 1.8518859245630177e-05, 'epoch': 0.39}
+{'loss': 0.1642, 'grad_norm': 7.3404316902160645, 'learning_rate': 1.8058877644894207e-05, 'epoch': 0.45}
+{'loss': 0.1536, 'grad_norm': 10.70256233215332, 'learning_rate': 1.7598896044158234e-05, 'epoch': 0.52}
+{'loss': 0.1508, 'grad_norm': 3.986227035522461, 'learning_rate': 1.7138914443422264e-05, 'epoch': 0.58}
+{'loss': 0.1479, 'grad_norm': 7.293673515319824, 'learning_rate': 1.6678932842686294e-05, 'epoch': 0.65}
+{'loss': 0.154, 'grad_norm': 5.969019889831543, 'learning_rate': 1.6218951241950324e-05, 'epoch': 0.71}
+{'loss': 0.1494, 'grad_norm': 11.300493240356445, 'learning_rate': 1.575896964121435e-05, 'epoch': 0.78}
+{'loss': 0.1306, 'grad_norm': 5.042374134063721, 'learning_rate': 1.529898804047838e-05, 'epoch': 0.84}
+{'loss': 0.1194, 'grad_norm': 5.830540657043457, 'learning_rate': 1.4839006439742412e-05, 'epoch': 0.91}
+{'loss': 0.1255, 'grad_norm': 13.65063762664795, 'learning_rate': 1.437902483900644e-05, 'epoch': 0.97}
+ 33%|████████████████████▎                                        | 771/2313 [04:48<07:58,  3.22it/s]W0605 17:45:48.439000 36224 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:46:06.795000 14436 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+{'eval_loss': 0.11386031657457352, 'eval_accuracy': 0.9610475560177744, 'eval_precision': 0.9613921491190754, 'eval_recall': 0.9610475560177744, 'eval_f1': 0.9606676466009582, 'eval_runtime': 48.8811, 'eval_samples_per_second': 216.382, 'eval_steps_per_second': 6.772, 'epoch': 1.0}
+ 33%|████████████████████▎                                        | 771/2313 [05:38<07:58,  3.22it/s]W0605 17:46:39.298000 41040 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:46:52.950000 10508 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+{'loss': 0.1147, 'grad_norm': 6.053848743438721, 'learning_rate': 1.391904323827047e-05, 'epoch': 1.04}
+{'loss': 0.0869, 'grad_norm': 2.8403730392456055, 'learning_rate': 1.34590616375345e-05, 'epoch': 1.1}
+{'loss': 0.0998, 'grad_norm': 8.399736404418945, 'learning_rate': 1.2999080036798527e-05, 'epoch': 1.17}
+{'loss': 0.0935, 'grad_norm': 11.057395935058594, 'learning_rate': 1.2539098436062557e-05, 'epoch': 1.23}
+{'loss': 0.0818, 'grad_norm': 4.219409942626953, 'learning_rate': 1.2079116835326587e-05, 'epoch': 1.3}
+{'loss': 0.096, 'grad_norm': 3.337717294692993, 'learning_rate': 1.1619135234590617e-05, 'epoch': 1.36}
+{'loss': 0.091, 'grad_norm': 3.855949640274048, 'learning_rate': 1.1159153633854647e-05, 'epoch': 1.43}
+{'loss': 0.0861, 'grad_norm': 15.195358276367188, 'learning_rate': 1.0699172033118676e-05, 'epoch': 1.49}
+{'loss': 0.0874, 'grad_norm': 6.40974760055542, 'learning_rate': 1.0239190432382706e-05, 'epoch': 1.56}
+{'loss': 0.0743, 'grad_norm': 6.880146503448486, 'learning_rate': 9.779208831646734e-06, 'epoch': 1.62}
+{'loss': 0.0877, 'grad_norm': 5.946386814117432, 'learning_rate': 9.319227230910764e-06, 'epoch': 1.69}
+{'loss': 0.0883, 'grad_norm': 8.100194931030273, 'learning_rate': 8.859245630174794e-06, 'epoch': 1.75}
+{'loss': 0.0731, 'grad_norm': 6.774838447570801, 'learning_rate': 8.399264029438822e-06, 'epoch': 1.82}
+{'loss': 0.0818, 'grad_norm': 9.135664939880371, 'learning_rate': 7.939282428702852e-06, 'epoch': 1.88}
+{'loss': 0.0816, 'grad_norm': 9.057727813720703, 'learning_rate': 7.4793008279668824e-06, 'epoch': 1.94}
+ 67%|████████████████████████████████████████                    | 1542/2313 [11:55<08:37,  1.49it/s]W0605 17:52:55.311000 41448 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:53:17.317000 6332 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+{'eval_loss': 0.0959620401263237, 'eval_accuracy': 0.967760234471022, 'eval_precision': 0.9678016948466406, 'eval_recall': 0.967760234471022, 'eval_f1': 0.9677787625747133, 'eval_runtime': 79.1725, 'eval_samples_per_second': 133.594, 'eval_steps_per_second': 4.181, 'epoch': 2.0}
+ 67%|████████████████████████████████████████                    | 1542/2313 [13:15<08:37,  1.49it/s]W0605 17:54:16.304000 40264 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 17:54:32.662000 32928 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+{'loss': 0.0797, 'grad_norm': 5.222009658813477, 'learning_rate': 7.019319227230912e-06, 'epoch': 2.01}
+{'loss': 0.059, 'grad_norm': 3.9372246265411377, 'learning_rate': 6.559337626494941e-06, 'epoch': 2.07}
+{'loss': 0.0584, 'grad_norm': 4.350820541381836, 'learning_rate': 6.09935602575897e-06, 'epoch': 2.14}
+{'loss': 0.056, 'grad_norm': 4.167433261871338, 'learning_rate': 5.639374425023e-06, 'epoch': 2.2}   
+{'loss': 0.0579, 'grad_norm': 8.099013328552246, 'learning_rate': 5.179392824287029e-06, 'epoch': 2.27}
+{'loss': 0.0556, 'grad_norm': 8.013164520263672, 'learning_rate': 4.719411223551058e-06, 'epoch': 2.33}
+{'loss': 0.0419, 'grad_norm': 4.522765159606934, 'learning_rate': 4.2594296228150874e-06, 'epoch': 2.4}
+{'loss': 0.0567, 'grad_norm': 4.546938896179199, 'learning_rate': 3.799448022079117e-06, 'epoch': 2.46}
+{'loss': 0.0401, 'grad_norm': 4.83588981628418, 'learning_rate': 3.3394664213431466e-06, 'epoch': 2.53}
+{'loss': 0.0716, 'grad_norm': 3.2809722423553467, 'learning_rate': 2.8794848206071758e-06, 'epoch': 2.59}
+{'loss': 0.0606, 'grad_norm': 6.225761890411377, 'learning_rate': 2.4195032198712054e-06, 'epoch': 2.66}
+{'loss': 0.0509, 'grad_norm': 6.6369948387146, 'learning_rate': 1.959521619135235e-06, 'epoch': 2.72}
+{'loss': 0.0461, 'grad_norm': 3.2491183280944824, 'learning_rate': 1.4995400183992641e-06, 'epoch': 2.79}
+{'loss': 0.0533, 'grad_norm': 2.549779176712036, 'learning_rate': 1.0395584176632935e-06, 'epoch': 2.85}
+{'loss': 0.0569, 'grad_norm': 11.586748123168945, 'learning_rate': 5.79576816927323e-07, 'epoch': 2.92}
+{'loss': 0.0651, 'grad_norm': 0.7023254036903381, 'learning_rate': 1.1959521619135236e-07, 'epoch': 2.98}
+100%|████████████████████████████████████████████████████████████| 2313/2313 [19:06<00:00,  3.18it/s]W0605 18:00:07.100000 11476 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 18:00:27.069000 39636 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+{'eval_loss': 0.09923412650823593, 'eval_accuracy': 0.9718256594497494, 'eval_precision': 0.9717647722984205, 'eval_recall': 0.9718256594497494, 'eval_f1': 0.971756949180796, 'eval_runtime': 56.3257, 'eval_samples_per_second': 187.783, 'eval_steps_per_second': 5.877, 'epoch': 3.0}
+{'train_runtime': 1206.2149, 'train_samples_per_second': 122.762, 'train_steps_per_second': 1.918, 'train_loss': 0.11756452184912966, 'epoch': 3.0}                                                        
+100%|████████████████████████████████████████████████████████████| 2313/2313 [20:06<00:00,  1.92it/s]
+
+[>] Final evaluation...
+W0605 18:01:05.525000 12924 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+W0605 18:01:51.140000 27084 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+100%|██████████████████████████████████████████████████████████████| 331/331 [00:16<00:00, 20.00it/s]
+
+[OK] TEST RESULTS:
+  eval_loss: 0.0966
+  eval_accuracy: 0.9715
+  eval_precision: 0.9715
+  eval_recall: 0.9715
+  eval_f1: 0.9715
+  eval_runtime: 86.0523
+  eval_samples_per_second: 122.9140
+  eval_steps_per_second: 3.8460
+
+[OK] Model saved: c:\Users\user\Desktop\phishing_detection\models\roberta_final
+[>] Plotting training curves...
+[OK] Saved: c:\Users\user\Desktop\phishing_detection\results\training_curves.png
+
+[OK] PHASE 2 COMPLETE
+(.venv) PS C:\Users\user\Desktop\phishing_detection> & c:\Users\user\Desktop\phishing_detection\.venv\Scripts\python.exe c:/Users/user/Desktop/phishing_detection/03_url_features.py
+
+======================================================================
+  PHASE 3: XGBoost URL Feature Classifier
+======================================================================
+
+[>] Loading URL dataset...
+[OK] Loaded 19,131 URL samples
+     Phishing: 4,168
+     Legitimate: 14,963
+
+[>] Extracting URL features...
+[OK] Feature matrix: (19131, 36)
+
+[>] Starting 5-fold cross-validation...
+   Fold 1/5... Acc: 0.875, AUC: 0.914
+   Fold 2/5... Acc: 0.871, AUC: 0.899
+   Fold 3/5... Acc: 0.880, AUC: 0.908
+   Fold 4/5... Acc: 0.880, AUC: 0.906
+   Fold 5/5... Acc: 0.883, AUC: 0.905
+
+[OK] Cross-Validation Results:
+     Mean Accuracy: 0.8778 +/- 0.0042
+     Mean AUC: 0.9065 +/- 0.0047
+
+[>] Training final model on all data...
+[OK] Feature importance saved to c:\Users\user\Desktop\phishing_detection\results\xgb_feature_importance.png
+[OK] Model saved to c:\Users\user\Desktop\phishing_detection\models\xgb_url_classifier.pkl
+
+[OK] Phase 3 Complete!
+(.venv) PS C:\Users\user\Desktop\phishing_detection> & c:\Users\user\Desktop\phishing_detection\.venv\Scripts\python.exe c:/Users/user/Desktop/phishing_detection/04_llm_explain.py
+
+======================================================================
+  PHASE 4: LLaMA-3 Explanation Module (OPTIONAL)
+======================================================================
+
+[INFO] LLaMA-3 Explanation Module
+       This module generates explanations for borderline predictions
+       Borderline threshold: 0.35
+       Requires: Ollama with llama3 or HF_INFERENCE_API_KEY
+
+[OK] Found 5,212 borderline predictions
+     (These would be sent to LLaMA-3 for explanation)
+
+[INFO] Full explanation generation skipped (optional feature)
+       To enable, set up Ollama locally and uncomment code
+
+[OK] Phase 4 Complete!
+(.venv) PS C:\Users\user\Desktop\phishing_detection> & c:\Users\user\Desktop\phishing_detection\.venv\Scripts\python.exe c:/Users/user/Desktop/phishing_detection/05_ensemble_eval.py
+
+======================================================================
+  PHASE 5: Ensemble Evaluation
+======================================================================
+
+[>] Loading test data...
+[OK] Test set: 10,577 samples
+
+[>] Generating base model predictions...
+W0605 18:06:08.937000 11276 .venv\Lib\site-packages\torch\distributed\elastic\multiprocessing\redirects.py:29] NOTE: Redirects are currently not supported in Windows or MacOs.
+   RoBERTa... [OK]
+   XGBoost... [OK]
+
+[>] Ensemble voting (average)...
+
+[OK] Ensemble Results:
+     Accuracy: 0.9662
+     F1-Score: 0.9484
+
+[OK] Confusion matrix saved to c:\Users\user\Desktop\phishing_detection\results\confusion_matrix.png
+[OK] ROC/PR curves saved to c:\Users\user\Desktop\phishing_detection\results\roc_pr_curves.png
+[OK] Predictions saved to c:\Users\user\Desktop\phishing_detection\results\ensemble_predictions.csv
+
+[OK] Report saved to c:\Users\user\Desktop\phishing_detection\results\classification_report.txt
+
+[OK] Phase 5 Complete! All results saved to results/

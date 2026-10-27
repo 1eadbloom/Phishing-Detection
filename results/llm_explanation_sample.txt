@@ -1,0 +1,53 @@
+Qwen3_Coder Phishing Explanation Module — Sample Output
+=================================================================
+
+[Sample idx=61]
+  Text        : Ivy Lane Colombo | Cheap Hotels in Colombo City Sri Lanka var base_url = ' [URL] (function(i,s,o,g,r,a,m){i['GoogleAnaly...
+  True label  : LEGITIMATE
+  Ensemble p  : 0.4945
+  LLM verdict : LEGITIMATE (HIGH)
+  Urgency     : none
+  Impersonate : none
+  Explanation : This appears to be a legitimate hotel website with standard web tracking code. The formatting issues are typical of web development rather than phishing indicators.
+-----------------------------------------------------------------
+
+[Sample idx=269]
+  Text        : setaccess.webflow.io...
+  True label  : PHISHING
+  Ensemble p  : 0.5792
+  LLM verdict : LEGITIMATE (MEDIUM)
+  Urgency     : none
+  Impersonate : none
+  Explanation : The URL appears to be from a legitimate Webflow service but lacks contextual information to determine its purpose. No immediate red flags present.
+-----------------------------------------------------------------
+
+[Sample idx=906]
+  Text        : jewishencyclopedia.com/articles/13837-sola-de...
+  True label  : LEGITIMATE
+  Ensemble p  : 0.3851
+  LLM verdict : LEGITIMATE (MEDIUM)
+  Urgency     : none
+  Impersonate : none
+  Explanation : The URL appears to be from a legitimate academic source. However, the missing protocol prefix could indicate a copy-paste error or potential phishing attempt.
+-----------------------------------------------------------------
+
+[Sample idx=935]
+  Text        : On Mon, Feb 04, 2002 at 04:53:14PM +0100, Matthias Saou wrote: > It skips it. See the /etc/apt/apt.conf file for this. I...
+  True label  : LEGITIMATE
+  Ensemble p  : 0.4521
+  LLM verdict : LEGITIMATE (HIGH)
+  Urgency     : none
+  Impersonate : none
+  Explanation : This is a technical email thread about RPM package management with no phishing indicators. The content appears to be legitimate technical correspondence from a software development context.
+-----------------------------------------------------------------
+
+[Sample idx=949]
+  Text        : aeep.com.au/SGD/really2.php...
+  True label  : PHISHING
+  Ensemble p  : 0.5996
+  LLM verdict : PHISHING (MEDIUM)
+  Urgency     : none
+  Impersonate : none
+  Explanation : The obfuscated URL structure with 'really2.php' suggests a credential harvesting page. The unusual path structure is typical of phishing attempts designed to avoid detection.
+-----------------------------------------------------------------
+

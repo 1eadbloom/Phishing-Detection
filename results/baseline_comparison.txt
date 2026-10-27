@@ -1,0 +1,13 @@
+PHISHING DETECTION — FULL BASELINE COMPARISON
+(All metrics: binary, phishing class = positive label)
+───────────────────────────────────────────────────────────────────────────
+Model                                  Prec     Rec      F1     Acc     AUC
+───────────────────────────────────────────────────────────────────────────
+  TF-IDF + Naive Bayes               0.8267✗  0.7869✗  0.8063✗  0.8782  0.9436✗
+  TF-IDF + Logistic Regression       0.8686✗  0.8403✗  0.8542✗  0.9076  0.9688✗
+  XGBoost (URL features only)       [SKIPPED]
+  RoBERTa-base (fine-tuned)          0.9647✓  0.9457✓  0.9551✓  0.9714  0.9948✓
+  Ensemble (RoBERTa + XGBoost)       0.9649✓  0.9445✓  0.9546✓  0.9711      N/A
+───────────────────────────────────────────────────────────────────────────
+✓ = meets proposal target threshold  ✗ = below target
+Targets: Precision≥0.95  Recall≥0.92  F1≥0.93  AUC-ROC≥0.97

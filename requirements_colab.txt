@@ -1,0 +1,58 @@
+# ══════════════════════════════════════════════════════
+#  requirements.txt
+#  Phishing & Social Engineering Detection Pipeline
+# ══════════════════════════════════════════════════════
+#  Colab install command:
+#  !pip install -r requirements.txt
+# ══════════════════════════════════════════════════════
+
+# [L1] RoBERTa tokenizer + model
+transformers==4.40.2
+
+# [L2] Dataset loading & streaming
+datasets==2.19.1
+
+# [L3] Metric computation
+evaluate==0.4.2
+
+# [L4] LoRA / QLoRA adapters (for LLaMA-3 explanation module)
+peft==0.10.0
+
+# [L5] Mixed-precision training acceleration
+accelerate==0.29.3
+
+# [L9] PyTorch (Colab T4 ships with CUDA 11.8 build)
+# torch==2.2.2+cu118  ← pre-installed on Colab, skip reinstall
+
+# [L6] Baseline models, preprocessing, metrics
+scikit-learn==1.4.2
+
+# [L7] URL feature classifier
+xgboost==2.0.3
+
+# [L8] URL domain/TLD parsing
+tldextract==5.1.2
+
+# [L10] 4-bit quantization for LLaMA-3 on T4
+bitsandbytes==0.43.1
+
+# [L11] LLM chaining
+langchain==0.1.20
+
+# [L12] Ollama integration for LLaMA-3
+langchain-community==0.0.38
+
+# [L13] Progress bars
+tqdm==4.66.4
+
+# [L14] Evaluation visualizations
+seaborn==0.13.2
+matplotlib==3.8.4
+
+# [L15] Experiment tracking (optional — set WANDB_DISABLED=true to skip)
+wandb==0.17.0
+
+# Utilities
+pandas==2.2.2
+numpy==1.26.4
+scipy==1.13.0
