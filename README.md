@@ -82,10 +82,12 @@ Stacking raised phishing Precision by **+3.5 pp** over the Week 15 simple-averag
 phishing\_detection/
 |-- config.py                   # Hyperparameters, paths, dataset URLs
 |-- 01\_data\_pipeline.py         # Download and merge D1-D4 -> 70,514 samples
-|-- 02\_finetune\_roberta\_2.py    # RoBERTa fine-tuning (bf16, binary avg)
+|-- 02\_finetune\_roberta.py      # v1: Week 15 baseline (simple averaging, weighted metrics)
+|-- 02\_finetune\_roberta\_2.py    # v2: Final (bf16, binary metrics, stacking-ready) <-- use this
 |-- 03\_url\_features\_2.py        # XGBoost URL classifier (36 features)
 |-- 04\_llm\_explain\_2.py         # Qwen3 via Ollama REST API
-|-- 05\_ensemble\_eval\_2.py       # Stacking ensemble + threshold calibration
+|-- 05\_ensemble\_eval.py         # v1: Week 15 simple averaging baseline
+|-- 05\_ensemble\_eval\_2.py       # v2: Final stacking ensemble + threshold calibration <-- use this
 |-- 06\_baseline\_comparison.py   # TF-IDF baselines table
 |-- run\_all\_colab.py            # Google Colab cell-by-cell runner
 |
