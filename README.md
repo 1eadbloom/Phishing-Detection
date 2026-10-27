@@ -1,37 +1,37 @@
-# Phishing & Social Engineering Detection via Fine-Tuned LLM Pipelines
+# Phishing \& Social Engineering Detection via Fine-Tuned LLM Pipelines
 
-> LLM Applications in Cybersecurity - Term Project (Group 140)
+> LLM Applications in Cybersecurity - Term Project
 
 A phishing and social engineering detection system combining a fine-tuned **RoBERTa** text classifier, an **XGBoost** URL feature classifier, a **Stacking Ensemble** meta-learner, and a **Qwen3 LLM** explainability module via Ollama.
 
----
+\---
 
 ## Results at a Glance
 
-| Metric | Target (Proposal) | Achieved |
-|--------|:-----------------:|:--------:|
-| Precision (Phishing) | >= 95% | **96.49%** |
-| Recall (Phishing) | >= 92% | **94.45%** |
-| F1-Score | >= 93% | **95.46%** |
-| AUC-ROC | >= 0.97 | **0.9948** |
-| False Positive Rate | <= 3% | **1.62%** |
-| Overall Accuracy | - | **97.00%** |
+|Metric|Target (Proposal)|Achieved|
+|-|:-:|:-:|
+|Precision (Phishing)|>= 95%|**96.49%**|
+|Recall (Phishing)|>= 92%|**94.45%**|
+|F1-Score|>= 93%|**95.46%**|
+|AUC-ROC|>= 0.97|**0.9948**|
+|False Positive Rate|<= 3%|**1.62%**|
+|Overall Accuracy|-|**97.00%**|
 
 All five proposal targets met.
 
 ### Baseline Comparison
 
-| Model | Precision | Recall | F1 | AUC |
-|-------|:---------:|:------:|:--:|:---:|
-| TF-IDF + Naive Bayes | 0.827 | 0.787 | 0.806 | 0.944 |
-| TF-IDF + Logistic Regression | 0.869 | 0.840 | 0.854 | 0.969 |
-| XGBoost (URL only, 5-fold CV) | - | - | - | 0.907 |
-| RoBERTa (standalone) | 0.965 | 0.946 | 0.955 | 0.9948 |
-| **Stacking Ensemble (final)** | **0.965** | **0.945** | **0.955** | **0.9948** |
+|Model|Precision|Recall|F1|AUC|
+|-|:-:|:-:|:-:|:-:|
+|TF-IDF + Naive Bayes|0.827|0.787|0.806|0.944|
+|TF-IDF + Logistic Regression|0.869|0.840|0.854|0.969|
+|XGBoost (URL only, 5-fold CV)|-|-|-|0.907|
+|RoBERTa (standalone)|0.965|0.946|0.955|0.9948|
+|**Stacking Ensemble (final)**|**0.965**|**0.945**|**0.955**|**0.9948**|
 
 Stacking raised phishing Precision by **+3.5 pp** over the Week 15 simple-averaging baseline (0.930 -> 0.965), resolving the proposal's only unmet target.
 
----
+\---
 
 ## System Architecture
 
@@ -61,7 +61,7 @@ Stacking raised phishing Precision by **+3.5 pp** over the Week 15 simple-averag
                |  (Logistic Regr.) |
                +---------+---------+
                          |
-               P(ensemble) in [0.35, 0.65]?
+               P(ensemble) in \[0.35, 0.65]?
                +----------+----------+
            YES (borderline)     NO (confident)
                |                    |
@@ -74,23 +74,23 @@ Stacking raised phishing Precision by **+3.5 pp** over the Week 15 simple-averag
       Final Verdict + Explanation
 ```
 
----
+\---
 
 ## Repository Structure
 
 ```text
-phishing_detection/
+phishing\_detection/
 |-- config.py                   # Hyperparameters, paths, dataset URLs
-|-- 01_data_pipeline.py         # Download and merge D1-D4 -> 70,514 samples
-|-- 02_finetune_roberta_2.py    # RoBERTa fine-tuning (bf16, binary avg)
-|-- 03_url_features_2.py        # XGBoost URL classifier (36 features)
-|-- 04_llm_explain_2.py         # Qwen3 via Ollama REST API
-|-- 05_ensemble_eval_2.py       # Stacking ensemble + threshold calibration
-|-- 06_baseline_comparison.py   # TF-IDF baselines table
-|-- run_all_colab.py            # Google Colab cell-by-cell runner
+|-- 01\_data\_pipeline.py         # Download and merge D1-D4 -> 70,514 samples
+|-- 02\_finetune\_roberta\_2.py    # RoBERTa fine-tuning (bf16, binary avg)
+|-- 03\_url\_features\_2.py        # XGBoost URL classifier (36 features)
+|-- 04\_llm\_explain\_2.py         # Qwen3 via Ollama REST API
+|-- 05\_ensemble\_eval\_2.py       # Stacking ensemble + threshold calibration
+|-- 06\_baseline\_comparison.py   # TF-IDF baselines table
+|-- run\_all\_colab.py            # Google Colab cell-by-cell runner
 |
-|-- requirements_local.txt      # Windows local environment
-|-- requirements_colab.txt      # Google Colab environment
+|-- requirements\_local.txt      # Windows local environment
+|-- requirements\_colab.txt      # Google Colab environment
 |
 |-- data/
 |   |-- raw/                    # gitignored - auto-downloaded by Phase 1
@@ -99,44 +99,44 @@ phishing_detection/
 |-- models/                     # gitignored - 475 MB RoBERTa + XGB pkl
 |
 |-- results/                    # Plots and reports (tracked by git)
-|   |-- training_curves.png
-|   |-- confusion_matrix.png
-|   |-- roc_pr_curves.png
-|   |-- xgb_feature_importance.png
-|   |-- baseline_comparison.png
-|   |-- classification_report.txt
-|   +-- threshold_calibration.json
+|   |-- training\_curves.png
+|   |-- confusion\_matrix.png
+|   |-- roc\_pr\_curves.png
+|   |-- xgb\_feature\_importance.png
+|   |-- baseline\_comparison.png
+|   |-- classification\_report.txt
+|   +-- threshold\_calibration.json
 |
 +-- reports/                    # Academic deliverables
-    |-- Proposal_Week14.docx
-    |-- Progress_Report_Week15.docx
-    +-- Final_Report_Week16.docx
+    |-- Proposal\_Week14.docx
+    |-- Progress\_Report\_Week15.docx
+    +-- Final\_Report\_Week16.docx
 ```
 
----
+\---
 
 ## Datasets
 
-| ID | Dataset | Source | Samples | License |
-|----|---------|--------|--------:|---------|
-| D1 | ealvaradob/phishing-dataset | HuggingFace Hub | 77,677 | MIT |
-| D2 | SMS Spam Collection | UCI ML Repository | 5,574 | CC BY 4.0 |
-| D3 | SpamAssassin Public Corpus | Apache | 3,253 | Apache 2.0 |
-| D4 | PhishTank Verified URLs | OpenPhish | - | Skipped (bz2 error) |
+|ID|Dataset|Source|Samples|License|
+|-|-|-|-:|-|
+|D1|ealvaradob/phishing-dataset|HuggingFace Hub|77,677|MIT|
+|D2|SMS Spam Collection|UCI ML Repository|5,574|CC BY 4.0|
+|D3|SpamAssassin Public Corpus|Apache|3,253|Apache 2.0|
+|D4|PhishTank Verified URLs|OpenPhish|-|Skipped (bz2 error)|
 
 Merged total: 70,514 samples, 32.2% phishing (22,712), 67.8% legitimate (47,802)
 
 Split: 70% train / 15% val / 15% test, stratified by label
 
----
+\---
 
 ## Installation
 
 ### Prerequisites
 
-- Python 3.11+
-- NVIDIA GPU (recommended; CPU fallback supported)
-- [Ollama](https://ollama.ai/) (optional, for LLM explainability)
+* Python 3.11+
+* NVIDIA GPU (recommended; CPU fallback supported)
+* [Ollama](https://ollama.ai/) (optional, for LLM explainability)
 
 ### Windows + Blackwell GPU Note (RTX 5080 / 5090)
 
@@ -157,9 +157,9 @@ git clone https://github.com/1eadbloom/Phishing-Detection.git
 cd Phishing-Detection
 
 python -m venv .venv
-.venv\Scripts\activate
+.venv\\Scripts\\activate
 
-pip install -r requirements_local.txt
+pip install -r requirements\_local.txt
 
 # Windows + Blackwell only: override PyTorch after requirements install
 pip install torch==2.7.0+cu128 --index-url https://download.pytorch.org/whl/cu128
@@ -172,113 +172,113 @@ ollama pull qwen3
 ollama serve
 ```
 
----
+\---
 
 ## Running the Pipeline
 
 ```bash
-python 01_data_pipeline.py        # ~5 min  - downloads and merges datasets
-python 02_finetune_roberta_2.py   # ~20 min - fine-tunes RoBERTa (GPU)
-python 03_url_features_2.py       # ~2 min  - XGBoost URL classifier
-python 04_llm_explain_2.py        # ~10 min - Qwen3 explanations (needs Ollama)
-python 05_ensemble_eval_2.py      # ~3 min  - stacking ensemble + evaluation
-python 06_baseline_comparison.py  # ~2 min  - baseline table generation
+python 01\_data\_pipeline.py        # \~5 min  - downloads and merges datasets
+python 02\_finetune\_roberta\_2.py   # \~20 min - fine-tunes RoBERTa (GPU)
+python 03\_url\_features\_2.py       # \~2 min  - XGBoost URL classifier
+python 04\_llm\_explain\_2.py        # \~10 min - Qwen3 explanations (needs Ollama)
+python 05\_ensemble\_eval\_2.py      # \~3 min  - stacking ensemble + evaluation
+python 06\_baseline\_comparison.py  # \~2 min  - baseline table generation
 ```
 
-For Google Colab (free T4/A100), open `run_all_colab.py`. Each cell maps to one phase. GPU memory requirement is ~6 GB (T4 compatible).
+For Google Colab (free T4/A100), open `run\_all\_colab.py`. Each cell maps to one phase. GPU memory requirement is \~6 GB (T4 compatible).
 
----
+\---
 
 ## Key Implementation Details
 
 ### RoBERTa Fine-tuning
 
-Script: `02_finetune_roberta_2.py`
+Script: `02\_finetune\_roberta\_2.py`
 
-- Base model: `roberta-base` (125M params)
-- Max sequence length: 256 tokens
-- Effective batch size: 64 (batch 16 x grad accumulation 4)
-- Learning rate: 2e-5 with 6% warmup
-- Mixed precision: `bf16=True` (required for SM 12.0 / Blackwell)
-- Val F1 per epoch: 0.9607 -> 0.9678 -> **0.9718** (best, no early stop triggered)
-- Training time: ~20 min on RTX 5080 Laptop (3.18 it/s)
+* Base model: `roberta-base` (125M params)
+* Max sequence length: 256 tokens
+* Effective batch size: 64 (batch 16 x grad accumulation 4)
+* Learning rate: 2e-5 with 6% warmup
+* Mixed precision: `bf16=True` (required for SM 12.0 / Blackwell)
+* Val F1 per epoch: 0.9607 -> 0.9678 -> **0.9718** (best, no early stop triggered)
+* Training time: \~20 min on RTX 5080 Laptop (3.18 it/s)
 
 ### XGBoost URL Classifier
 
-Script: `03_url_features_2.py`
+Script: `03\_url\_features\_2.py`
 
-- 36 hand-crafted URL features (length, subdomain depth, special char counts, TLD type, IP detection, path entropy, etc.)
-- `scale_pos_weight = 3.59` corrects the 14,963:4,168 class imbalance
-- 5-fold CV: Accuracy 87.78% +/- 0.42%, AUC 90.65% +/- 0.47%
+* 36 hand-crafted URL features (length, subdomain depth, special char counts, TLD type, IP detection, path entropy, etc.)
+* `scale\_pos\_weight = 3.59` corrects the 14,963:4,168 class imbalance
+* 5-fold CV: Accuracy 87.78% +/- 0.42%, AUC 90.65% +/- 0.47%
 
 ### Stacking Ensemble
 
-Script: `05_ensemble_eval_2.py`
+Script: `05\_ensemble\_eval\_2.py`
 
-- Meta-learner: Logistic Regression trained on `[P_roberta, P_xgboost]` feature pairs
-- Threshold calibration: t=0.35 gives P=0.9625, R=0.9498, F1=0.9561 (optimal)
-- All thresholds >= 0.35 satisfy Precision >= 95%; system is operating-point stable
+* Meta-learner: Logistic Regression trained on `\[P\_roberta, P\_xgboost]` feature pairs
+* Threshold calibration: t=0.35 gives P=0.9625, R=0.9498, F1=0.9561 (optimal)
+* All thresholds >= 0.35 satisfy Precision >= 95%; system is operating-point stable
 
 ### LLM Explainability
 
-Script: `04_llm_explain_2.py`
+Script: `04\_llm\_explain\_2.py`
 
-- Model: Qwen3 via Ollama local REST API (`POST /api/generate`)
-- 50 borderline samples (0.35 <= P <= 0.65) analyzed
-- LLM-classifier agreement: **84%** (42/50)
-- Output: `results/llm_explanations.csv`, `results/llm_explanation_sample.txt`
+* Model: Qwen3 via Ollama local REST API (`POST /api/generate`)
+* 50 borderline samples (0.35 <= P <= 0.65) analyzed
+* LLM-classifier agreement: **84%** (42/50)
+* Output: `results/llm\_explanations.csv`, `results/llm\_explanation\_sample.txt`
 
----
+\---
 
 ## Evaluation Outputs
 
 After running Phase 5, `results/` will contain:
 
-| File | Description |
-|------|-------------|
-| `classification_report.txt` | Per-class precision / recall / F1 |
-| `confusion_matrix.png` | TP=3217, FP=116, TN=7054, FN=190 |
-| `roc_pr_curves.png` | AUC-ROC=0.9948, AUC-PR curve |
-| `training_curves.png` | RoBERTa loss + val F1 per epoch |
-| `xgb_feature_importance.png` | Top 20 URL features by XGBoost gain |
-| `baseline_comparison.png` | All models side-by-side bar chart |
-| `threshold_calibration.json` | Precision/Recall at each threshold |
+|File|Description|
+|-|-|
+|`classification\_report.txt`|Per-class precision / recall / F1|
+|`confusion\_matrix.png`|TP=3217, FP=116, TN=7054, FN=190|
+|`roc\_pr\_curves.png`|AUC-ROC=0.9948, AUC-PR curve|
+|`training\_curves.png`|RoBERTa loss + val F1 per epoch|
+|`xgb\_feature\_importance.png`|Top 20 URL features by XGBoost gain|
+|`baseline\_comparison.png`|All models side-by-side bar chart|
+|`threshold\_calibration.json`|Precision/Recall at each threshold|
 
----
+\---
 
 ## Troubleshooting
 
-| Symptom | Cause | Fix |
-|---------|-------|-----|
-| `no kernel image is available` | Wrong PyTorch build for Blackwell | Install `torch==2.7.0+cu128` (see Installation) |
-| `WinError 1114` DLL load fail | PyTorch / CUDA version mismatch | Same fix above |
-| `bitsandbytes` GPU error | Windows incompatibility | Remove `bitsandbytes` from requirements |
-| PhishTank `Invalid data stream` | Corrupted bz2 download | Expected; D4 is skipped automatically |
-| OOM during RoBERTa training | Insufficient VRAM | Reduce `TRAIN_BATCH_SIZE` in `config.py` (try 8) |
-| Ollama connection refused | Ollama not running | Run `ollama serve` in a separate terminal |
+|Symptom|Cause|Fix|
+|-|-|-|
+|`no kernel image is available`|Wrong PyTorch build for Blackwell|Install `torch==2.7.0+cu128` (see Installation)|
+|`WinError 1114` DLL load fail|PyTorch / CUDA version mismatch|Same fix above|
+|`bitsandbytes` GPU error|Windows incompatibility|Remove `bitsandbytes` from requirements|
+|PhishTank `Invalid data stream`|Corrupted bz2 download|Expected; D4 is skipped automatically|
+|OOM during RoBERTa training|Insufficient VRAM|Reduce `TRAIN\_BATCH\_SIZE` in `config.py` (try 8)|
+|Ollama connection refused|Ollama not running|Run `ollama serve` in a separate terminal|
 
----
+\---
 
 ## Reports
 
 Academic deliverables are in `reports/`:
 
-- **Week 14 - Project Proposal**: System design, datasets, evaluation targets, 8-week roadmap
-- **Week 15 - Progress Report**: RoBERTa fine-tuning results, prompt engineering iterations, Week 15 baseline (simple averaging, P=0.930)
-- **Week 16 - Final Report**: Full system evaluation, stacking ensemble analysis, security evaluation (FN/FP cost, adversarial robustness), architectural limitations
+* **Week 14 - Project Proposal**: System design, datasets, evaluation targets, 8-week roadmap
+* **Week 15 - Progress Report**: RoBERTa fine-tuning results, prompt engineering iterations, Week 15 baseline (simple averaging, P=0.930)
+* **Week 16 - Final Report**: Full system evaluation, stacking ensemble analysis, security evaluation (FN/FP cost, adversarial robustness), architectural limitations
 
----
+\---
 
 ## References
 
 1. Liu, Y. et al. (2019). RoBERTa: A Robustly Optimized BERT Pretraining Approach. arXiv:1907.11692
-2. Chen, T. & Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. KDD 2016
-3. Mohammad, R. M., Thabtah, F., & McCluskey, L. (2014). Predicting phishing websites based on self-structuring neural network. Neural Computing and Applications
+2. Chen, T. \& Guestrin, C. (2016). XGBoost: A Scalable Tree Boosting System. KDD 2016
+3. Mohammad, R. M., Thabtah, F., \& McCluskey, L. (2014). Predicting phishing websites based on self-structuring neural network. Neural Computing and Applications
 4. ealvaradob. (2024). phishing-dataset. HuggingFace Hub (MIT License)
-5. Almeida, T. & Gomez Hidalgo, J. M. (2012). UCI SMS Spam Collection
+5. Almeida, T. \& Gomez Hidalgo, J. M. (2012). UCI SMS Spam Collection
 6. SpamAssassin Public Corpus. Apache Software Foundation
 
----
+\---
 
 ## License
 
@@ -286,6 +286,7 @@ Submitted as coursework for academic evaluation.
 Datasets retain their respective original licenses (see Datasets section).
 Code is available for reference under [MIT License](LICENSE).
 
----
+\---
 
-*LLM Applications in Cybersecurity - Group 140 - 2025*
+*LLM Applications in Cybersecurity - 2025*
+
